@@ -1,0 +1,39 @@
+.loginPage{
+    background-color: dimgray;
+    margin-top: 50px;
+    margin-left: 800px;
+    height: 500px;
+    border-radius: 15px;
+    color: azure;
+    box-shadow: green;
+}
+
+heading{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+}
+
+#exampleInputEmail1, #exampleInputPassword1{
+    border: 0;
+    height: 50px;
+    border-bottom: 2px solid black;
+}
+
+form{
+    margin: 10px;
+    margin-left: 0;
+}
+
+.forgotPassword{
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.submitBtn{
+    margin-left: 170px;
+}
+
+.divider{
+    width: 70%;
+}
