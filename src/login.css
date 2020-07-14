@@ -1,14 +1,14 @@
 .loginPage{
-    background-color: dimgray;
+    background-color: salmon;
     margin-top: 50px;
     margin-left: 800px;
-    height: 500px;
+    height: 550px;
     border-radius: 15px;
     color: azure;
     box-shadow: green;
 }
 
-heading{
+.heading{
     font-family: 'Ubuntu', sans-serif;
     font-size: 40px;
 }
@@ -16,7 +16,8 @@ heading{
 #exampleInputEmail1, #exampleInputPassword1{
     border: 0;
     height: 50px;
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
+    color: black;
 }
 
 form{
@@ -24,14 +25,24 @@ form{
     margin-left: 0;
 }
 
-.forgotPassword{
+.forgotPassword, .signUp{
     text-align: center;
     text-decoration: underline;
     cursor: pointer;
 }
 
+.signUp{
+    margin-top: 10px;
+}
+
+.forgotPassword:hover {
+    color: gold;
+}
+
 .submitBtn{
-    margin-left: 170px;
+    margin-left: 150px;
+    width: 100px;
+    font-weight: bold;
 }
 
 .divider{
