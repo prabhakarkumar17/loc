@@ -1,6 +1,6 @@
 import React from 'react';
 
-const register = () => {
+const register = (props) => {
     return(
         <div className="col-md-4 registerPage" >
                 <p className="heading">Get on Board</p>
@@ -22,6 +22,7 @@ const register = () => {
                     </div>
 
                     <button type="submit" className="btn btn-primary submitBtn">Register</button>
+                    <p className="signUp" onClick={() => props.data.updateStatus(!props.data.registerStatus)} >Already registered ? <span style={{text_decoration:"underline"}}> Login instead </span> </p>
                 </form>
                 <hr className="divider"></hr>
             </div>

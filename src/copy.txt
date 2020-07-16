@@ -1,14 +1,27 @@
-import React from 'react';
-import loginCss from './login.css'
-import Register from './register';
-import App from './App';
-import { register } from './serviceWorker';
+login.js
 
-function login (props){
+
+class login extends React.Component{
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            registerStatus : false
+        };
+    }
+
+    registerPage = () => {
+        this.setState({registerStatus: !this.state.registerStatus});
+        console.log(this.state.registerStatus);
+        //<App registerStatus = {this.state.registerStatus} />
+    }
+
+    render() 
+    {
         return(
 
             <div className="col-md-4  loginPage" >
-                <h1> { props.data.registerStatus } </h1>
                 <p className="heading">Hello there, Welcome back</p>
                 <form>
                     <div className="form-group">
@@ -22,11 +35,11 @@ function login (props){
                     <p className="forgotPassword">Forgot Your Password ?</p>
                     <button type="submit" className="btn btn-primary submitBtn">Sign in</button>
 
-                    <p className="signUp" onClick={() => props.data.updateStatus(!props.data.registerStatus)} >New here ? <span style={{text_decoration:"underline"}}> Sign Up instead </span> </p>
+                    <p className="signUp" onClick={this.registerPage} >New here ? <span style={{text_decoration:"underline"}}> Sign Up instead </span> </p>
                 </form>
                 <hr className="divider"></hr>
             </div>
         )};
-
+}
 
 export default login;

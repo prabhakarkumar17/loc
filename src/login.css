@@ -1,7 +1,9 @@
-.loginPage{
-    background-color: salmon;
-    margin-top: 50px;
-    margin-left: 800px;
+.loginPage,
+.registerPage {
+    background-color: #5e6f64;
+    margin-top: 40px;
+    margin-left: 850px;
+    width: 28%;
     height: 550px;
     border-radius: 15px;
     color: azure;
@@ -13,7 +15,7 @@
     font-size: 40px;
 }
 
-#exampleInputEmail1, #exampleInputPassword1{
+#exampleInputEmail1, #exampleInputPassword1, #exampleInputName{
     border: 0;
     height: 50px;
     border-bottom: 3px solid black;
@@ -40,7 +42,7 @@ form{
 }
 
 .submitBtn{
-    margin-left: 150px;
+    margin-left: 122px;
     width: 100px;
     font-weight: bold;
 }
