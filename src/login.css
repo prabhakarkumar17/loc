@@ -1,13 +1,17 @@
 .loginPage,
 .registerPage {
-    background-color: #5e6f64;
+    background:
+        linear-gradient(red, transparent),
+        linear-gradient(to top left, lime, transparent),
+        linear-gradient(to top right, blue, transparent);
+    background-blend-mode: screen;
     margin-top: 40px;
-    margin-left: 850px;
-    width: 28%;
+    margin-left: 30px;
+    width: 350px;
     height: 550px;
     border-radius: 15px;
-    color: azure;
-    box-shadow: green;
+    color: black;
+    position: relative;
 }
 
 .heading{
@@ -17,9 +21,12 @@
 
 #exampleInputEmail1, #exampleInputPassword1, #exampleInputName{
     border: 0;
-    height: 50px;
+    height: 45px;
     border-bottom: 3px solid black;
     color: black;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
 }
 
 form{
@@ -41,12 +48,30 @@ form{
     color: gold;
 }
 
+.userIcon{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-top: 8px ;
+    margin-left: 2px;
+}
+
 .submitBtn{
-    margin-left: 122px;
-    width: 100px;
+    margin-left: 49px;
+    width: 230px;
+    height: 40px;
+    border-radius: 20px;
     font-weight: bold;
 }
 
 .divider{
     width: 70%;
+}
+
+.google,
+.facebook{
+    width: 230px;
+    border-radius: 20px;
+    margin-left: 56px;
+    margin-bottom: 8px;
 }

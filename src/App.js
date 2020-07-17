@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Login from './login';
 import Register from './register';
-import AppCss from './App.css';
-
+import './App.css';
+import Tag from './tagLine';
+import Nav from './navBar';
 
 class App extends Component{
     constructor(props){
@@ -18,34 +19,33 @@ class App extends Component{
 
     render() {         
         if(!this.state.registerStatus){
-            return <Login data={
+            return ( 
+            <div className='container'>
+
+                <Tag />
+                <Login data={
                 {
                     registerStatus : this.state.registerStatus,
                     updateStatus : this.updateStatus.bind(this)
                 }
-            } />
+                } />
+            </div>
+            )
         } else {
-            return <Register data={
+            return(
+                <div className='container'>
+ 
+                <Tag />
+                <Register data={
                 {
                     registerStatus : this.state.registerStatus,
                     updateStatus : this.updateStatus.bind(this)
                 }
             } />
+                </div>
+            ) 
         }
     }
 }
-
-// const image = { uri: "https://reactjs.org/logo-og.png" };
-
-// class App extends Component{    
-//     render(){
-//         return(
-//             <div>     
-//                 <ImageBackground source= {image} />         
-//                 <Login />                
-//             </div>            
-//         );
-//     }
-// }
 
 export default App;

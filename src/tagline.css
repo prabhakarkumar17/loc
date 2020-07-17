@@ -1,0 +1,32 @@
+.tagline{
+    width: 740px;
+    height: 450px;
+    margin-top: 118px;
+    margin-right: 20px;    
+    border-radius: 15px;
+}
+
+h1{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 55px;
+    text-align: left;
+    margin: 20px;
+    color: antiquewhite;
+}
+
+h3{
+    font-family: 'Montserrat', sans-serif;
+    margin: 20px;
+    color: yellow;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.tagBtn{
+    margin-left: 70px;
+    width: 230px;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: bold;
+
+}

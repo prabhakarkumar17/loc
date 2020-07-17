@@ -10,9 +10,16 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.1",
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.1.21",
+    "react-icon": "^1.0.0",
+    "react-icons": "^3.10.0",
     "react-native": "^0.63.0",
     "react-native-element": "^1.2.1",
-    "react-scripts": "3.4.1"
+    "react-navbar": "^3.0.0",
+    "react-responsive-carousel": "^3.2.9",
+    "react-scripts": "3.4.1",
+    "reactstrap": "^8.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.10.4"
   }
 }
