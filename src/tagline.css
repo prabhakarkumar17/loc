@@ -1,8 +1,9 @@
 .tagline{
     width: 740px;
     height: 450px;
-    margin-top: 118px;
-    margin-right: 20px;    
+    margin-top: 100px;
+    margin-right: 20px;   
+    margin-left: 85px; 
     border-radius: 15px;
 }
 

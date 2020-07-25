@@ -5,3 +5,14 @@ body{
     background-size: 100% 110%;
 }
 
+.navBar{
+    background-color: rgb(110, 91, 119);
+}
+
+a{
+    text-decoration: none;
+    color: azure;
+    font-weight: bold;
+    font-family: 'Ubuntu';
+}
+

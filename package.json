@@ -18,8 +18,12 @@
     "react-native-element": "^1.2.1",
     "react-navbar": "^3.0.0",
     "react-responsive-carousel": "^3.2.9",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "reactstrap": "^8.5.1"
+    "reactstrap": "^8.5.1",
+    "solc": "^0.4.25",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.0.0-beta.26"
   },
   "scripts": {
     "start": "react-scripts start",

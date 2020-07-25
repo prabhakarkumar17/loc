@@ -1,31 +1,21 @@
 import React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import './navBar.css'
 
-const navBar = (props) => {
-//   const [collapsed, setCollapsed] = useState(true);
-     var collapsed = true;
-     const toggleNavbar = () => {
-         collapsed = !collapsed;
-     };
-
+const navBar = () => {
   return (
-    <div>
-      <Navbar color="faded" dark>
-        <NavbarBrand href="/" className="mr-auto">Reactstrap</NavbarBrand>
-        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-        <Collapse isOpen={!collapsed} navbar>
-          <Nav navbar>
-            <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
+    <div className="navBar">
+       <nav className="navbar navbar-light bg-light">
+        <Link to='/' className="navbar-brand">Letter Of Credit</Link>
+
+       <Link to="/BankLogin" className="bankSection">Bank Section</Link>
+       <Link to='/' className="customerSection">Customer Section</Link>
+       
+       </nav>
     </div>
   );
 }
+
+  
 
 export default navBar;

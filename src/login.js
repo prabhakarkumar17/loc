@@ -1,12 +1,13 @@
 import React from 'react';
 import './login.css'
-import Register from './register';
-import App from './App';
-import { register } from './serviceWorker';
+//import App from './App';
+import Profile from './profile';
+//import { register } from './serviceWorker';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { FaUserAlt } from 'react-icons/fa';
 import { AiFillLock } from 'react-icons/ai'; 
+import { Link } from 'react-router-dom';
 
 
 const responseGoogle = (response) => {
@@ -17,27 +18,61 @@ const responseFacebook = (response) => {
     console.log(response);
 }
 
-function login (props){
+
+
+class login extends React.Component{
+
+    constructor(props){
+        super(props);
+
+        this.state={
+            email: "",
+            password: ""
+        }
+    }
+
+    changeToUserProfile = ((event) => {
+
+        event.preventDefault();
+        console.log(JSON.stringify(this.state))
+
+        if(this.state.email === "abc@gmail.com"){
+             console.log("Correct Email")
+        // this.props.data.updateProfile(!this.props.data.profileStatus)}
+         }
+        else{
+           console.log("bhai email galat hai");
+        }
+        
+    })
+
+    handleChange = (event) => {
+        event.preventDefault();
+        this.setState({ [event.target.name] : event.target.value })
+    }
+
+    render(){
         return(
 
             <div className="col-md-4 loginPage" >
-                <h1> { props.data.registerStatus } </h1>
                 <p className="heading">Hello there, Welcome back</p>
-                <form>
+
+                <form onSubmit = {this.changeToUserProfile} className="loginForm">
                     <div className="form-group">
                         <FaUserAlt color="black" size="28px" className="userIcon"/>
-                        <input type="email" placeholder="Email address" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <input type="email" name="email" placeholder="Email address" value={this.state.email} onChange={this.handleChange}
+                               className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                         <small id="emailHelp" className="form-text">Don't Worry. Your confidentiality is our asset.</small>
                     </div>
                     <div className="form-group">
                         <AiFillLock color="black" size="28px" className="userIcon" />
-                        <input type="password" placeholder="Password" className="form-control" id="exampleInputPassword1" />
+                        <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}
+                               className="form-control" id="exampleInputPassword1" />
                     </div>
 
                     <p className="forgotPassword">Forgot Your Password ?</p>
-                    <button type="submit" className="btn btn-primary submitBtn">Sign in</button>
-
-                    <p className="signUp" onClick={() => props.data.updateStatus(!props.data.registerStatus)} >New here ? <span style={{text_decoration:"underline"}}> Sign Up instead </span> </p>
+                    <button type="submit" className="btn btn-primary submitBtn"><Link to="/userProfile">Sign in</Link></button>
+                    <p className="signUp" > <Link to="/register">New here ? <span style={{text_decoration:"underline"}}> Sign Up instead </span></Link> </p>
                 </form>
                 <hr className="divider"></hr>
                 
@@ -68,6 +103,6 @@ function login (props){
 
             </div>
         )};
-
+     }
 
 export default login;

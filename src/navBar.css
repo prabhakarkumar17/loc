@@ -1,0 +1,22 @@
+
+.bankSection,
+.applicationLOC{
+    width: 150px;
+    height: 75px;
+    padding: 35px;
+    background-color: black;
+    margin-left: 680px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.customerSection,
+.myProfile{
+    width: 150px;
+    height: 75px;
+    padding: 30px;
+    margin-left: 20px;
+    background-color: black;
+    text-align: center;
+    border-radius: 20px;
+}

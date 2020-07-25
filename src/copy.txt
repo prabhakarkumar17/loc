@@ -43,3 +43,6 @@ class login extends React.Component{
 }
 
 export default login;
+
+
+onClick={() => this.props.data.updateStatus(!this.props.data.registerStatus)}

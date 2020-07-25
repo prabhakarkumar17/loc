@@ -1,37 +1,51 @@
 .loginPage,
-.registerPage {
+.registerPage,
+.bankLoginPage {
     background:
         linear-gradient(red, transparent),
         linear-gradient(to top left, lime, transparent),
         linear-gradient(to top right, blue, transparent);
     background-blend-mode: screen;
-    margin-top: 40px;
-    margin-left: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
     width: 350px;
     height: 550px;
     border-radius: 15px;
     color: black;
     position: relative;
-}
-
-.heading{
+}   
+  
+.heading{ 
     font-family: 'Ubuntu', sans-serif;
     font-size: 40px;
 }
 
-#exampleInputEmail1, #exampleInputPassword1, #exampleInputName{
+.registerForm,
+.loginForm,
+.bankForm, 
+.bankRegister{
+    margin-left: 5px;
+    margin-top: 3px;
+    width: 310px;
+}
+
+#exampleInputName,
+#exampleInputEmail1, 
+#exampleInputBankId,
+#exampleInputPassword1, 
+#exampleInputBankPassword1,
+#exampleInputBankName,
+#exampleInputBankBranch,          
+#exampleInputBankAddress,
+#exampleInputBankCreateId
+{
     border: 0;
-    height: 45px;
+    height: 40px;
     border-bottom: 3px solid black;
     color: black;
     display: flex;
     flex-direction: row;
     text-align: center;
-}
-
-form{
-    margin: 10px;
-    margin-left: 0;
 }
 
 .forgotPassword, .signUp{
@@ -49,8 +63,6 @@ form{
 }
 
 .userIcon{
-    display: flex;
-    flex-direction: row;
     position: absolute;
     margin-top: 8px ;
     margin-left: 2px;
