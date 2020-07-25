@@ -8,6 +8,8 @@ import FacebookLogin from 'react-facebook-login';
 import { FaUserAlt } from 'react-icons/fa';
 import { AiFillLock } from 'react-icons/ai'; 
 import { Link } from 'react-router-dom';
+import web3 from "./web3";
+import loginContract from './loginContract'
 
 
 const responseGoogle = (response) => {
@@ -31,18 +33,18 @@ class login extends React.Component{
         }
     }
 
-    changeToUserProfile = ((event) => {
+    changeToUserProfile = (async (event) => {
 
         event.preventDefault();
-        console.log(JSON.stringify(this.state))
+        const accounts = await web3.eth.getAccounts();
+        console.log(this.state.email, this.state.password);
 
-        if(this.state.email === "abc@gmail.com"){
-             console.log("Correct Email")
-        // this.props.data.updateProfile(!this.props.data.profileStatus)}
-         }
-        else{
-           console.log("bhai email galat hai");
-        }
+        const loginResult = await loginContract.methods.userValidate(this.state.email, this.state.password)
+                            .send({from: accounts[0]});
+       
+        var loginEvent = await loginContract.events.allEvents;
+        console.log(loginEvent);
+
         
     })
 
@@ -71,7 +73,7 @@ class login extends React.Component{
                     </div>
 
                     <p className="forgotPassword">Forgot Your Password ?</p>
-                    <button type="submit" className="btn btn-primary submitBtn"><Link to="/userProfile">Sign in</Link></button>
+                    <button type="submit" className="btn btn-primary submitBtn">Sign in</button>
                     <p className="signUp" > <Link to="/register">New here ? <span style={{text_decoration:"underline"}}> Sign Up instead </span></Link> </p>
                 </form>
                 <hr className="divider"></hr>
