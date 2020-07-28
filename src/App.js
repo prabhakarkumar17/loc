@@ -10,6 +10,7 @@ import BankRegister from './bankRegister'
 import ProfileNavBar from './profileNavBar'
 import BankNavBar from './bankNavBar'
 import MyProfile from './myProfile'
+import UserProfile from './profile'
 
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 

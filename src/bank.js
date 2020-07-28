@@ -22,17 +22,16 @@ class bankLogin extends React.Component{
 
     onSubmit = async(event) => {
         event.preventDefault();
-        console.log()
-
         const account = await web3.eth.getAccounts();
 
         const bankLoginStatus = await loginContract.methods.bankValidate( this.state.bankId,this.state.password )
                     .send({from: account[0]});
+        console.log(bankLoginStatus);
 
-        const bankEvent = await loginContract.events.checkBankLogin().on('data', function(eventL){
-            console.log(eventL.address);
-        });
-        console.log(bankEvent);
+        //var key = bankLoginStatus.events.checkBankLogin.returnValues;
+
+        
+        //console.log(key);
     }
 
     handleIdChange = (event) => {

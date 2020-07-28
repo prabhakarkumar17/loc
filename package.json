@@ -18,6 +18,7 @@
     "react-native-element": "^1.2.1",
     "react-navbar": "^3.0.0",
     "react-responsive-carousel": "^3.2.9",
+    "react-router": "^3.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.5.1",

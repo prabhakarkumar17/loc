@@ -10,7 +10,7 @@ import { AiFillLock } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import web3 from "./web3";
 import loginContract from './loginContract'
-
+import { browserHistory } from 'react-router'
 
 const responseGoogle = (response) => {
     console.log(response);
@@ -26,10 +26,14 @@ class login extends React.Component{
 
     constructor(props){
         super(props);
+        this.changeToUserProfile = this.changeToUserProfile .bind(this);
 
         this.state={
             email: "",
-            password: ""
+            password: "",
+            check:"",
+            name:"User",
+            message:""
         }
     }
 
@@ -43,26 +47,30 @@ class login extends React.Component{
                             .send({from: accounts[0]});
         
         //var loginEvent = await loginContract.events.checkLogin;
-        console.log(loginResult.events.checkLogin.returnValues);
-        const result = await loginResult;
-        console.log(result);
+        var key = loginResult.events.checkLogin.returnValues;
         
-        // var loginEvent = await loginContract.events.allEvents;     
+        this.setState({name: key[1]});
+        this.setState({check: key[0]});
 
-        
+        if(this.state.check == 0){
+            console.log("Welcome "+this.state.name);
+            browserHistory.push("http://localhost:3000/userProfile");
+            window.location.reload();
+        } else {
+            this.setState({message: "Please check your UserId and Password"})
+        }      
     })
 
     handleChange = (event) => {
         event.preventDefault();
         this.setState({ [event.target.name] : event.target.value })
     }
-
     render(){
         return(
 
             <div className="col-md-4 loginPage" >
                 <p className="heading">Hello there, Welcome back</p>
-
+                <h4>{this.state.message}</h4>
                 <form onSubmit = {this.changeToUserProfile} className="loginForm">
                     <div className="form-group">
                         <FaUserAlt color="black" size="28px" className="userIcon"/>
@@ -77,7 +85,7 @@ class login extends React.Component{
                     </div>
 
                     <p className="forgotPassword">Forgot Your Password ?</p>
-                    <button type="submit" className="btn btn-primary submitBtn">Sign in</button>
+                    <button type="submit" className="btn btn-primary submitBtn" onClick={this.changeToUserProfile}>Sign in</button>
                     <p className="signUp" > <Link to="/register">New here ? <span style={{text_decoration:"underline"}}> Sign Up instead </span></Link> </p>
                 </form>
                 <hr className="divider"></hr>
