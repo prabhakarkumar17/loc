@@ -71,10 +71,9 @@ contract login {
            
     //     }
        
-    function userValidate(string memory email, string memory password) public {
-        
-        if(keccak256(abi.encodePacked(userId[email].password))  == keccak256(abi.encodePacked(password))){
-           emit checkLogin(Status.success, userId[email].name );
+    function userValidate(string memory email, string memory password) public {        
+        if(keccak256(abi.encodePacked(userId[email].password)) == keccak256(abi.encodePacked(password))){
+           emit checkLogin(Status.success, userId[email].name);
         } else {
            emit checkLogin(Status.failed, userId[email].name);
         }

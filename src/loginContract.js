@@ -137,10 +137,22 @@ const abi = [
 		],
 		"name": "checkBankLogin",
 		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "checkRegister",
+		"type": "event"
 	}
 ];
 
-const contractAddress = '0xc9d0B305ced4d67FD1Cae04bCd88330E4041aC0A';
+const contractAddress = '0xcbb97e53c6b9dd8316b135d30853fdcec4a8c2e9';
 
 export default new web3.eth.Contract(abi, contractAddress);
 

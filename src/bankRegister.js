@@ -20,10 +20,11 @@ class bankRegister extends React.Component {
             bankAddress: "",
             bankId: "",
             password: "",
-            confirmPassword: ""
+            confirmPassword: "",
+            message:""
         }
     }
-
+    
     // handleChange = (event) => {
     //     event.preventDefault();
     //     this.setState({ [event.target.name]: event.target.value });
@@ -55,7 +56,9 @@ class bankRegister extends React.Component {
     }
 
     handleSubmit = async (event) => {
+        var txHash = "";
         event.preventDefault();
+        this.setState({ message: "Waiting for the Tx to complete..."})
         console.log();
             const accounts = await web3.eth.getAccounts();
         
@@ -70,15 +73,18 @@ class bankRegister extends React.Component {
                  function(err, TxHash){
                     if(!err){
                         console.log(TxHash);
+                        txHash = TxHash;
                     }
                  }
                 );
+        this.setState({ message: "Congrats!!! You are on Blockchain now with Tx Hash: "+txHash})
     }
 
     render(){
         return(
             <div className="col-md-4 registerPage" >
                     <p className="heading">Register Bank</p>
+                    <h4> {this.state.message} </h4>
                     <form className="bankRegister" onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <BsFillPersonPlusFill  color="black" size="28px" className="userIcon" />

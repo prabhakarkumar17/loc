@@ -37,13 +37,17 @@ class login extends React.Component{
 
         event.preventDefault();
         const accounts = await web3.eth.getAccounts();
-        console.log(this.state.email, this.state.password);
+        console.log(this.state.email, this.state.password);        
 
         const loginResult = await loginContract.methods.userValidate(this.state.email, this.state.password)
                             .send({from: accounts[0]});
-       
-        var loginEvent = await loginContract.events.allEvents;
-        console.log(loginEvent);
+        
+        //var loginEvent = await loginContract.events.checkLogin;
+        console.log(loginResult.events.checkLogin.returnValues);
+        const result = await loginResult;
+        console.log(result);
+        
+        // var loginEvent = await loginContract.events.allEvents;     
 
         
     })
