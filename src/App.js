@@ -11,13 +11,16 @@ import ProfileNavBar from './profileNavBar'
 import BankNavBar from './bankNavBar'
 import MyProfile from './myProfile'
 import UserProfile from './profile'
-
+import MyProvider from './MyContext'
+import Wallet from './wallet'
+import ApplyLC from './applyLC'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 class App extends Component {
     
     render(){
                return(
+            <MyProvider>
                    <div >
                 <BrowserRouter>            
                     <Route path="/" exact render = {props => 
@@ -55,13 +58,32 @@ class App extends Component {
                     <Route path='/userProfile' render = {props =>
                             <div>
                                 <ProfileNavBar />
+                                <div className="col-md-8">
+
+                                </div>
                             </div>
                     } />
 
                     <Route path='/userProfile/myProfile' render = {props => 
                             <div>
-                                <MyProfile />
+                                <div className="col-md-8">
+                                    <MyProfile /> 
+                                </div>
+                                <div className="col-md-4">
+                                    <Wallet />
+                                </div>
                             </div>
+                    } />
+
+                    <Route path='/userProfile/apply' render = {props =>
+                            <div>
+                            <div className="col-md-8">
+                                <ApplyLC /> 
+                            </div>
+                            <div className="col-md-4">
+                                <Wallet />
+                            </div>
+                        </div>
                     } />
 
                     <Route path='/BankLogin/bankProfile' render = {props => 
@@ -71,11 +93,12 @@ class App extends Component {
                     } />
                 </BrowserRouter>
                 </div>
+            </MyProvider>
                ) 
             }
             
-        
-    }
+        }
+export default App;
 
 
 
@@ -143,5 +166,3 @@ class App extends Component {
 //         }
 //     }
 // }
-
-export default App;

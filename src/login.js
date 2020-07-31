@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom';
 import web3 from "./web3";
 import loginContract from './loginContract'
 import { browserHistory } from 'react-router'
+import ProfileNavBar from './profileNavBar'
+import { MyContext } from './MyContext'
 
 const responseGoogle = (response) => {
     console.log(response);
@@ -31,9 +33,9 @@ class login extends React.Component{
         this.state={
             email: "",
             password: "",
-            check:"",
-            name:"User",
-            message:""
+            check: "",
+            name: "Prabhakar",
+            message: ""
         }
     }
 
@@ -69,6 +71,15 @@ class login extends React.Component{
         return(
 
             <div className="col-md-4 loginPage" >
+                
+                <MyContext.Consumer>
+                    {(context) => (
+                            () => context.setUserName(this.state.name)
+                        
+                        
+                    )}
+                </MyContext.Consumer>
+
                 <p className="heading">Hello there, Welcome back</p>
                 <h4>{this.state.message}</h4>
                 <form onSubmit = {this.changeToUserProfile} className="loginForm">

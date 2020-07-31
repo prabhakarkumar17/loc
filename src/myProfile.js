@@ -1,5 +1,7 @@
 import React from 'react';
 import './myProfile.css'
+import profileContract from './profileContract'
+import web3 from './web3'
 
 class myProfile extends React.Component {
     constructor(props){
@@ -13,11 +15,12 @@ class myProfile extends React.Component {
           domain: '',
           city: '',
           district: '',
-          zip: 0
+          zip: 0,
+          userName:''
         }
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
       event.preventDefault();
       console.log(
         this.state.name,
@@ -29,6 +32,22 @@ class myProfile extends React.Component {
         this.state.district,
         this.state.zip
       )
+      const accounts = await web3.eth.getAccounts();
+
+      const result = await profileContract.methods.setDetail(
+        this.state.name,
+        this.state.organizationName,
+        this.state.add,
+        this.state.gst,
+        this.state.domain,
+        this.state.city,
+        this.state.district,
+        this.state.zip
+      ).send({from: accounts[0] });
+
+      var key = result.events.idName.returnValues;
+      console.log(key[0]);
+      this.setState({userName: key[0]});
     }
 
     handleNameChange = (event) => {
@@ -76,6 +95,7 @@ class myProfile extends React.Component {
          
           
           <form onSubmit={this.handleSubmit}>
+            <h1>{this.state.userName} </h1>
             <h1 className="heading" style={{color:"black",marginLeft:"5px"}}>Update your profile</h1>
             
             <div class="form-row">
