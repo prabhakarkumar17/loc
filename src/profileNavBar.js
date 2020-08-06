@@ -9,11 +9,13 @@ const navBar = () => {
        <nav className="navbar navbar-light bg-light">
         <Link to='/userProfile' className="navbar-brand navHeading">User Dashboard</Link>      
 
-       {/* <MyContext.Consumer>
+       <MyContext.Consumer>
           {(context) => (
+            
             <h2>{context.state.userName}</h2>
+
           )}
-       </MyContext.Consumer> */}
+       </MyContext.Consumer>
        
        <Link to="/userProfile/apply" className="nav-item applicationLOC">Apply LOC</Link>
        <Link to='/userProfile/myProfile' className="myProfile">My Profile</Link>

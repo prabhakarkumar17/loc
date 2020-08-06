@@ -94,7 +94,7 @@ class myProfile extends React.Component {
         return(
          
           
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="profileForm">
             <h1>{this.state.userName} </h1>
             <h1 className="heading" style={{color:"black",marginLeft:"5px"}}>Update your profile</h1>
             

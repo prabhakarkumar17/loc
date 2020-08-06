@@ -7,16 +7,17 @@ export default class MyProvider extends React.Component{
         super(props);
 
         this.state = {
-            userName:'Ankit'
+            userName:''
         }   
+    }
+    setUserName = (setName) => {
+        this.setState({userName: setName })
     }
 
     render(){
         return(
             <MyContext.Provider value={{state:this.state,
-                setUserName : (name) => {
-                    this.setState({userName: name})
-                }
+                setUserName : (name) => this.setUserName(name)
             }}>
                 {this.props.children}
             </MyContext.Provider>

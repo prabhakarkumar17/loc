@@ -1,16 +1,72 @@
 import React from 'react'
 import web3 from './web3'
+import applyLcContract from './applyLcContract'
 
 class applyLC extends React.Component{
     constructor(props){
         super(props);
         this.state ={
-
+              publicKey: '',
+              exporterPublicKey: '',
+              bankPublicKey: '',
+              exporterBankPublicKey: '',
+              documentUpload: '0x6634b88310a558860a6b99Ef00529a6c0371E6c0',
+              contractDeal: '0x6634b88310a558860a6b99Ef00529a6c0371E6c0',
+              totalAmount: 500
         }
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
+        console.log(
+          this.state.publicKey,
+          this.state.bankPublicKey,
+          this.state.exporterBankPublicKey,
+          this.state.exporterPublicKey,
+          this.state.totalAmount,
+          this.state.contractDeal
+        )
+
+        const accounts = await web3.eth.getAccounts();
+
+        const result = await applyLcContract.methods.applyLC(this.state.publicKey, this.state.bankPublicKey,
+          this.state.exporterBankPublicKey,
+          this.state.exporterPublicKey,
+          this.state.totalAmount,
+          this.state.contractDeal
+        ).send({from: accounts[0]})
+
+        console.log(result);
+    }
+
+    handlePublicKey = (event) => {
+      event.preventDefault();
+      this.setState({publicKey: event.target.value})
+    }
+
+    handleExporterPublicKey = (event) => {
+      event.preventDefault();
+      this.setState({exporterPublicKey: event.target.value})
+    }
+
+    handleBankPublicKey = (event) => {
+      event.preventDefault();
+      this.setState({bankPublicKey: event.target.value})
+    }
+
+    handleExporterBankPublicKey = (event) => {
+      event.preventDefault();
+      this.setState({exporterBankPublicKey: event.target.value})
+    }
+
+    handleDocumentChange = (event) => {
+      event.preventDefault();
+      this.setState({documentUpload: event.target.value})
+    }
+
+    handleContractDealChange = (event) => {
+      event.preventDefault();
+      this.setState({contractDeal: event.target.value})
     }
 
     render(){
@@ -26,13 +82,13 @@ class applyLC extends React.Component{
               <div class="form-group col-md-6">
                 <label for="inputName">Your Public key</label>
                 <input type="text" class="form-control" id="inputName" placeholder="Public key address" 
-                onChange={this.handleNameChange} value={this.state.value} />
+                onChange={this.handlePublicKey} value={this.state.value} />
               </div>
 
               <div class="form-group col-md-6">
                 <label for="inputOrgName">Exporter's Public key</label>
                 <input type="text" class="form-control" id="inputOrgName" placeholder="Exporter's Public key address"
-                onChange={this.handleOrganizationNameChange} value={this.state.value} />
+                onChange={this.handleExporterPublicKey} value={this.state.value} />
               </div>
 
             </div>
@@ -41,7 +97,7 @@ class applyLC extends React.Component{
 
               <label for="inputAddress">Your Bank's Public key</label>
               <input type="text" class="form-control" id="inputAddress" placeholder="Bank's public key address"
-              onChange={this.handleAddressChange} value={this.state.value} />
+              onChange={this.handleBankPublicKey} value={this.state.value} />
             
             </div>
 
@@ -49,7 +105,7 @@ class applyLC extends React.Component{
 
               <label for="inputGST">Exporter's Bank Public key</label>
               <input type="text" class="form-control" id="inputGST" placeholder="Exporter's bank public key address" 
-              onChange={this.handleGstChange} value={this.state.value} />
+              onChange={this.handleExporterBankPublicKey} value={this.state.value} />
   
             </div>
 
@@ -57,7 +113,7 @@ class applyLC extends React.Component{
 
               <label for="inputWorkingDomain">Upload Document</label>
               <input type="file" class="form-control" id="inputWorkingDomain" placeholder="Upload relevant document..." 
-              onChange={this.handleDomainChange} value={this.state.value} />
+              onChange={this.handleDocumentChange} value={this.state.value} />
   
             </div>
 
@@ -65,7 +121,7 @@ class applyLC extends React.Component{
 
               <label for="inputWorkingDomain">Contract Deal</label>
               <input type="file" class="form-control" id="inputWorkingDomain" placeholder="Deal of the contract between Importer and Exporter" 
-              onChange={this.handleDomainChange} value={this.state.value} />
+              onChange={this.handleContractDealChange} value={this.state.value} />
   
             </div>            
 

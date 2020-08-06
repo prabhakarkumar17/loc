@@ -1,5 +1,6 @@
 import React from 'react'
 import web3 from './web3'
+import './wallet.css'
 
 class userProfile extends React.Component{
     constructor(props){
@@ -11,7 +12,9 @@ class userProfile extends React.Component{
 
     render(){
         return(
-            null
+            <div className="profileBackground">
+
+            </div>
         )
     }
 }

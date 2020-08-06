@@ -1,5 +1,6 @@
 import React from 'react'
 import web3 from './web3'
+import './wallet.css'
 
 class wallet extends React.Component{
     constructor(props){
@@ -20,14 +21,16 @@ class wallet extends React.Component{
 
     render(){
         return(
-            <div className="profile">
-                <h4>Note: Your public and private key pair are marraied to each other. So, to 
-                    work smoothly, dont ever ever have a dispute between them means DON'T LOOSE YOUR KEYS!!!
-                    THERE IS NO ALTERNATIVE...GOOD LUCK 
+            <div className="profileWallet">
+                <p className="heading">Your Wallet</p>
+                <h4 className="disclamair">Note: Your public and private key pair are married to each other. So, to 
+                    work smoothly, dont ever ever have a dispute between them means </h4>
+                 <h4 className="warning">   DON'T LOOSE YOUR KEYS!!! </h4>
+                  <h4 className="warning ">  THERE IS NO ALTERNATIVE TO SET THE SAME KEY BACK...GOOD LUCK :)
                 </h4>
-                <p>Public key: {this.state.publicKey}</p>
-                <p>Private key: {this.state.privateKey}</p>
-                <button onClick={this.createAccount} class="btn btn-primary">Create your own public & private key pair</button>
+                <p className="keys">Public key: {this.state.publicKey}</p>
+                <p className="keys">Private key: {this.state.privateKey}</p>
+                <button onClick={this.createAccount} class="btn btn-danger btnKey">Create your own public & private key pair</button>
             </div>
         )
     }

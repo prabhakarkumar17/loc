@@ -61,6 +61,9 @@ class App extends Component {
                                 <div className="col-md-8">
 
                                 </div>
+                                <div className="col-md-4">
+                                    <Wallet />
+                                </div>
                             </div>
                     } />
 
@@ -69,9 +72,7 @@ class App extends Component {
                                 <div className="col-md-8">
                                     <MyProfile /> 
                                 </div>
-                                <div className="col-md-4">
-                                    <Wallet />
-                                </div>
+                                
                             </div>
                     } />
 
@@ -80,9 +81,6 @@ class App extends Component {
                             <div className="col-md-8">
                                 <ApplyLC /> 
                             </div>
-                            <div className="col-md-4">
-                                <Wallet />
-                            </div>
                         </div>
                     } />
 
@@ -90,6 +88,7 @@ class App extends Component {
                             <div>
                                 <BankNavBar />
                             </div>
+                            
                     } />
                 </BrowserRouter>
                 </div>

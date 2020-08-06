@@ -46,7 +46,7 @@ class login extends React.Component{
         console.log(this.state.email, this.state.password);        
 
         const loginResult = await loginContract.methods.userValidate(this.state.email, this.state.password)
-                            .send({from: accounts[0]});
+                    .send({from: accounts[0]});
         
         //var loginEvent = await loginContract.events.checkLogin;
         var key = loginResult.events.checkLogin.returnValues;
@@ -74,8 +74,7 @@ class login extends React.Component{
                 
                 <MyContext.Consumer>
                     {(context) => (
-                            () => context.setUserName(this.state.name)
-                        
+                            (e) => context.setUserName(this.state.name)            
                         
                     )}
                 </MyContext.Consumer>
