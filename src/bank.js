@@ -8,6 +8,7 @@ import { AiFillLock } from 'react-icons/ai';
 import { BrowserRouter, Link } from 'react-router-dom';
 import web3 from './web3';
 import loginContract from './loginContract';
+import { browserHistory } from 'react-router'
 
 
 class bankLogin extends React.Component{
@@ -32,6 +33,9 @@ class bankLogin extends React.Component{
 
         
         //console.log(key);
+        browserHistory.push("http://localhost:3000/BankLogin/bankProfile");
+        window.location.reload();
+        
     }
 
     handleIdChange = (event) => {

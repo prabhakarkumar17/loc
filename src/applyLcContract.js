@@ -1,11 +1,15 @@
 import web3 from './web3'
 
-const contractAddress = '0xd3eff29aaf6711f5e59cb9f8364a57425159420a';
+const contractAddress = '0x866f5b716b5603e40d7c84fb059643b18157ca88';
 
 const abi = [
 	{
 		"constant": false,
 		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			},
 			{
 				"name": "success",
 				"type": "bool"
@@ -20,6 +24,10 @@ const abi = [
 	{
 		"constant": false,
 		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			},
 			{
 				"name": "_applicantBank",
 				"type": "address"
@@ -107,8 +115,8 @@ const abi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "success",
-				"type": "bool"
+				"name": "_applicant",
+				"type": "address"
 			}
 		],
 		"name": "dealCompleted",
@@ -120,6 +128,10 @@ const abi = [
 	{
 		"constant": false,
 		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			},
 			{
 				"name": "success",
 				"type": "bool"
@@ -135,6 +147,10 @@ const abi = [
 		"constant": false,
 		"inputs": [
 			{
+				"name": "_applicant",
+				"type": "address"
+			},
+			{
 				"name": "success",
 				"type": "bool"
 			}
@@ -148,6 +164,10 @@ const abi = [
 	{
 		"constant": false,
 		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			},
 			{
 				"name": "_exporterBank",
 				"type": "address"
@@ -175,6 +195,80 @@ const abi = [
 		"constant": false,
 		"inputs": [
 			{
+				"name": "_applicant",
+				"type": "address"
+			}
+		],
+		"name": "getApplicant",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			}
+		],
+		"name": "getApplicantBank",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			}
+		],
+		"name": "getExporter",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			}
+		],
+		"name": "getExporterBank",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			}
+		],
+		"name": "getStatus",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_applicant",
+				"type": "address"
+			},
+			{
 				"name": "_document",
 				"type": "string"
 			},
@@ -190,74 +284,28 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "getApplicant",
-		"outputs": [
+		"anonymous": false,
+		"inputs": [
 			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getApplicantBank",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getExporter",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getExporterBank",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getStatus",
-		"outputs": [
-			{
+				"indexed": false,
 				"name": "",
 				"type": "uint8"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
+		"name": "checkStatus",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "checkAddress",
+		"type": "event"
 	}
 ];
 

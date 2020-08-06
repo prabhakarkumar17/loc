@@ -12,7 +12,9 @@ class applyLC extends React.Component{
               exporterBankPublicKey: '',
               documentUpload: '0x6634b88310a558860a6b99Ef00529a6c0371E6c0',
               contractDeal: '0x6634b88310a558860a6b99Ef00529a6c0371E6c0',
-              totalAmount: 500
+              totalAmount: 0,
+              statusCode : 0,
+              statusMessage: ''
         }
     }
 
@@ -37,6 +39,22 @@ class applyLC extends React.Component{
         ).send({from: accounts[0]})
 
         console.log(result);
+
+        const checkStatus = await applyLcContract.methods.getStatus(this.state.publicKey)
+        .send({from: accounts[0]})
+
+        var status = checkStatus.events.checkStatus.returnValues;
+        this.setState({statusCode: status[0]})
+        console.log(this.state.statusCode);
+
+        if(this.state.statusCode == 0){
+          this.setState({statusMessage: "Your Application for LOC has been Submitted"});
+                 
+
+          // default: this.setState({statusMessage: "Sorry!!! Please try again..."});
+          //          break;
+        }
+        
     }
 
     handlePublicKey = (event) => {
@@ -69,12 +87,17 @@ class applyLC extends React.Component{
       this.setState({contractDeal: event.target.value})
     }
 
+    handleMoneyDealChange = (event) => {
+      event.preventDefault();
+      this.setState({totalAmount: event.target.value})
+    }
+
     render(){
         return(
          
           
           <form onSubmit={this.handleSubmit}>
-            <h1>{this.state.userName} </h1>
+            <h5>{this.state.statusMessage} </h5>
             <h1 className="heading" style={{color:"black",marginLeft:"5px"}}>Apply for Letter of Credit</h1>
             
             <div class="form-row">
@@ -122,6 +145,10 @@ class applyLC extends React.Component{
               <label for="inputWorkingDomain">Contract Deal</label>
               <input type="file" class="form-control" id="inputWorkingDomain" placeholder="Deal of the contract between Importer and Exporter" 
               onChange={this.handleContractDealChange} value={this.state.value} />
+
+              <label for="inputWorkingDomain">Total Amount of Deal</label>
+              <input type="number" class="form-control" id="inputWorkingDomain" placeholder="Total Monetary value of this deal" 
+              onChange={this.handleMoneyDealChange} value={this.state.value} />
   
             </div>            
 
