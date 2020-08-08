@@ -15,13 +15,14 @@ import MyProvider from './MyContext'
 import Wallet from './wallet'
 import ApplyLC from './applyLC'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+//import {Consumer} from './MyContext'
 
 class App extends Component {
+
     
     render(){
                return(
-            <MyProvider>
-                   <div >
+                   <MyProvider >
                 <BrowserRouter>            
                     <Route path="/" exact render = {props => 
                             <div className="container-fluid">
@@ -91,8 +92,7 @@ class App extends Component {
                             
                     } />
                 </BrowserRouter>
-                </div>
-            </MyProvider>
+                </MyProvider>
                ) 
             }
             

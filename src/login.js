@@ -1,5 +1,6 @@
 import React from 'react';
 import './login.css'
+import './applyLC.css'
 //import App from './App';
 import Profile from './profile';
 //import { register } from './serviceWorker';
@@ -12,7 +13,7 @@ import web3 from "./web3";
 import loginContract from './loginContract'
 import { browserHistory } from 'react-router'
 import ProfileNavBar from './profileNavBar'
-import { MyContext } from './MyContext'
+import {MyContext} from './MyContext'
 
 const responseGoogle = (response) => {
     console.log(response);
@@ -54,6 +55,8 @@ class login extends React.Component{
         this.setState({name: key[1]});
         this.setState({check: key[0]});
 
+        document.getElementById('contextUpdate').click();
+
         if(this.state.check == 0){
             console.log("Welcome "+this.state.name);
             browserHistory.push("http://localhost:3000/userProfile");
@@ -71,13 +74,6 @@ class login extends React.Component{
         return(
 
             <div className="col-md-4 loginPage" >
-                
-                <MyContext.Consumer>
-                    {(context) => (
-                            (e) => context.setUserName(this.state.name)            
-                        
-                    )}
-                </MyContext.Consumer>
 
                 <p className="heading">Hello there, Welcome back</p>
                 <h4>{this.state.message}</h4>
@@ -96,6 +92,13 @@ class login extends React.Component{
 
                     <p className="forgotPassword">Forgot Your Password ?</p>
                     <button type="submit" className="btn btn-primary submitBtn" onClick={this.changeToUserProfile}>Sign in</button>
+                    
+                    <MyContext.Consumer>
+                        {context => (
+                            <button id="contextUpdate" onClick={(e) => {context.setUserName(this.state.name)}}>Get Update</button>
+                        )}
+                    </MyContext.Consumer>
+
                     <p className="signUp" > <Link to="/register">New here ? <span style={{text_decoration:"underline"}}> Sign Up instead </span></Link> </p>
                 </form>
                 <hr className="divider"></hr>

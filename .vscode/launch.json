@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach to Chrome",
+            "name": "Launch Chrome",
             "port": 3000,
             "request": "attach",
             "type": "pwa-chrome",

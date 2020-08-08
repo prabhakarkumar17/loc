@@ -1,6 +1,8 @@
 import React from 'react'
 import web3 from './web3'
 import applyLcContract from './applyLcContract'
+import {MyContext} from './MyContext'
+import './applyLC.css'
 
 class applyLC extends React.Component{
     constructor(props){
@@ -48,12 +50,16 @@ class applyLC extends React.Component{
         console.log(this.state.statusCode);
 
         if(this.state.statusCode == 0){
+
+
           this.setState({statusMessage: "Your Application for LOC has been Submitted"});
                  
 
           // default: this.setState({statusMessage: "Sorry!!! Please try again..."});
           //          break;
         }
+          document.getElementById('contextUpdate').click();
+        
         
     }
 
@@ -93,11 +99,10 @@ class applyLC extends React.Component{
     }
 
     render(){
-        return(
-         
+        return(        
           
           <form onSubmit={this.handleSubmit}>
-            <h5>{this.state.statusMessage} </h5>
+            
             <h1 className="heading" style={{color:"black",marginLeft:"5px"}}>Apply for Letter of Credit</h1>
             
             <div class="form-row">
@@ -151,8 +156,16 @@ class applyLC extends React.Component{
               onChange={this.handleMoneyDealChange} value={this.state.value} />
   
             </div>            
+            <MyContext.Consumer>
+            {context => (
+              <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button id="contextUpdate" onClick={(e) => {context.setStatusMsg(this.state.statusMessage)}}></button>
+              </div>
+            )}
+          </MyContext.Consumer>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            
           </form>
 
         )

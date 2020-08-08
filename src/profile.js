@@ -11,9 +11,10 @@ class userProfile extends React.Component{
    
 
     render(){
+        
         return(
             <div className="profileBackground">
-
+                
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import web3 from './web3'
 import './wallet.css'
+import { MyContext } from './MyContext'
 
 class wallet extends React.Component{
     constructor(props){
@@ -22,7 +23,19 @@ class wallet extends React.Component{
     render(){
         return(
             <div className="wallet">
-                <p className="heading">Your Wallet</p>
+                <p className="heading">Your Wallet</p>             
+               
+
+                <MyContext.Consumer>
+                    {(context) => (
+                        <div>
+                            {context.state.statusMsg}
+                        </div>                 
+                        
+
+                    )}
+                </MyContext.Consumer>
+
                 <h4 className="disclamair">Note: Your public and private key pair are married to each other. So, to 
                     work smoothly, dont ever ever have a dispute between them means </h4>
                  <h4 className="warning">   DON'T LOOSE YOUR KEYS!!! </h4>
