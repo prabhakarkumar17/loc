@@ -1,0 +1,80 @@
+
+.greetings {
+    position: absolute;
+    font-size: 25px;
+    margin-left: 500px;
+    margin-top: 10px;
+    color: aliceblue;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bankNavBar,
+.profileNavBar,
+.mainNavBar{
+    background-color: black;
+    height: 60px;
+}
+
+.navHeading{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    color: antiquewhite;
+}
+
+.navItems{
+    height: 20px;
+    margin-top: 11px;
+}
+
+.requestedLOC,
+.bankSection,
+.applicationLOC {
+    margin-left: 590px;
+    padding-right: 15px;
+    border-right: 2px solid white;
+}
+
+.requestedLOC ,
+.bankProfile,
+.logout,
+.bankSection,
+.customerSection,
+.applicationLOC,
+.myProfile{
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 20px;
+    color: aliceblue;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bankProfile,
+.myProfile{
+    margin-left: 15px;
+    padding-right: 15px;
+    border-right: 2px solid white;
+} 
+
+.customerSection{
+    margin-left: 15px;
+}
+
+.applicationLOC{
+    margin-left: 660px;
+}
+
+.logout {
+    margin-left: 15px;
+
+}
+
+.bankProfile:hover,
+.requestedLOC:hover,
+.logout:hover,
+.bankSection:hover,
+.customerSection:hover,
+.applicationLOC:hover,
+.myProfile:hover{
+    color: deeppink;
+    text-decoration: none;
+}

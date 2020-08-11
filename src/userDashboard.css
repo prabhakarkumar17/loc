@@ -1,0 +1,20 @@
+.dashboard{
+    height: 250px;
+    background:
+    linear-gradient(rgb(51, 50, 50), transparent),
+    linear-gradient(to top left, rgb(1, 32, 1), transparent),
+    linear-gradient(to top right, rgb(29, 29, 43), transparent);
+background-blend-mode: screen;    border-radius: 15px;
+}
+
+.dashboardHeading{
+    padding: 8px;
+    font-size: 32px;
+    font-family: 'Ubuntu';
+    text-decoration: underline;
+    color: aliceblue;
+}
+
+.status{
+    font-size: 25px;
+}

@@ -1,12 +1,41 @@
 .profileNavBar{
-    background-color: yellowgreen;
-    height: 70px;
+    background-color: rgb(20, 20, 19);
+    height: 58px;
 }
 
 .navHeading{
     font-size: 30px;
+    font-family: 'Ubuntu';
+}
+x   
+.greetings{
+    font-size: 25px;
+    display: inline;
+    font-family: 'Ubuntu';
+    margin: auto;
+    color: white;
+    
+}
+
+.submitedApplication {
+    padding: 10px;
+    text-decoration: none;
+    background-color: bisque;
+    height: 100px;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.myProfile{
+    padding: 10px;
+    text-decoration: none;
+    
+    font-size: 20px;
 }
 
 .applicationLOC{
-    margin-top: 15px;
+    padding: 10px;
+    text-decoration: none;
+    margin-left: 350px;
+    font-size: 20px;
 }

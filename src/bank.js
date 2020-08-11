@@ -9,7 +9,7 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import web3 from './web3';
 import loginContract from './loginContract';
 import { browserHistory } from 'react-router'
-
+import { MyContext } from './MyContext'
 
 class bankLogin extends React.Component{
     constructor(props){
@@ -17,7 +17,9 @@ class bankLogin extends React.Component{
 
         this.state = {
             bankId: "",
-            password: ""
+            password: "",
+            bankName: "",
+            status: ""
         }
     }
 
@@ -29,12 +31,18 @@ class bankLogin extends React.Component{
                     .send({from: account[0]});
         console.log(bankLoginStatus);
 
-        //var key = bankLoginStatus.events.checkBankLogin.returnValues;
-
+        var key = bankLoginStatus.events.checkBankLogin.returnValues;
+        this.setState({bankName: key[1]});
+        this.setState({status: key[0]})
         
-        //console.log(key);
-        browserHistory.push("http://localhost:3000/BankLogin/bankProfile");
-        window.location.reload();
+        document.getElementById("contextUpdate").click();
+
+        if(this.state.status == 0){
+            browserHistory.push("http://localhost:3000/BankLogin/bankDashboard");
+            window.location.reload();
+        } else {
+            alert("Please enter Correct id and password")
+        }       
         
     }
 
@@ -54,6 +62,14 @@ class bankLogin extends React.Component{
 
             <div className="col-md-4 bankLoginPage" >
                 <p className="heading">Bank Login Section !</p>
+
+                <MyContext.Consumer>
+                    {context => (
+                        <div>
+                            <button id="contextUpdate" onClick={(e) => {context.setBankName(this.state.bankName)}}></button>
+                        </div>
+                    )}
+                </MyContext.Consumer>
 
                 <form onSubmit = {this.onSubmit} className="bankForm">
                     <div className="form-group">

@@ -15,6 +15,8 @@ import MyProvider from './MyContext'
 import Wallet from './wallet'
 import ApplyLC from './applyLC'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import BankProfile from './bankProfile'
+import UserDashboard from "./userDashboard";
 //import {Consumer} from './MyContext'
 
 class App extends Component {
@@ -68,6 +70,14 @@ class App extends Component {
                             </div>
                     } />
 
+                    <Route path='/userProfile/userDashboard' render = {props =>
+                            <div>
+                                <div className="col-md-8">
+                                    <UserDashboard />
+                                </div>
+                            </div>
+                    } />
+
                     <Route path='/userProfile/myProfile' render = {props => 
                             <div>
                                 <div className="col-md-8">
@@ -85,11 +95,29 @@ class App extends Component {
                         </div>
                     } />
 
-                    <Route path='/BankLogin/bankProfile' render = {props => 
+                    <Route path='/BankLogin/bankDashboard' render = {props =>
                             <div>
                                 <BankNavBar />
                             </div>
-                            
+                    } />
+
+                    <Route path='/BankLogin/requestedLC' render = {props =>
+                            <div>
+                                <BankNavBar />
+                            </div>
+                    } />
+
+                    <Route path='/BankLogin/bankProfile' render ={props => 
+                            <div>
+                                <BankNavBar />
+                                <div className="col-md-8">
+                                    <BankProfile />
+                                </div>
+                                <div className="col-md-4">
+                                    <Wallet />
+                                </div>
+                                
+                            </div>
                     } />
                 </BrowserRouter>
                 </MyProvider>

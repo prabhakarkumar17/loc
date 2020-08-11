@@ -32,6 +32,7 @@ contract login {
     
     event checkLogin(Status, string);
     event checkBankLogin (bankStatus, string);
+    event checkRegister(string);
    
     function setCustomerDetails (string memory _name, string memory _email, string memory _occupation, uint _contact, string memory _password, string memory _confirmPassword) public {
                    
@@ -42,7 +43,7 @@ contract login {
                     userId[_email].password = _password;
                     userId[_email].confirmPassword = _confirmPassword;
                    
-                    //emit checkRegister ( userId[_email].name, )
+                    emit checkRegister ( userId[_email].name);
                    
                     //return (userId[email].email, userId[email].password);
                 }
@@ -71,9 +72,10 @@ contract login {
            
     //     }
        
-    function userValidate(string memory email, string memory password) public {        
-        if(keccak256(abi.encodePacked(userId[email].password)) == keccak256(abi.encodePacked(password))){
-           emit checkLogin(Status.success, userId[email].name);
+    function userValidate(string memory email, string memory password) public {
+        
+        if(keccak256(abi.encodePacked(userId[email].password))  == keccak256(abi.encodePacked(password))){
+           emit checkLogin(Status.success, userId[email].name );
         } else {
            emit checkLogin(Status.failed, userId[email].name);
         }
