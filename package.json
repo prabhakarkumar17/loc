@@ -14,7 +14,7 @@
     "react-google-login": "^5.1.21",
     "react-icon": "^1.0.0",
     "react-icons": "^3.10.0",
-    "react-native": "^0.63.0",
+    "react-native": "^0.64.1",
     "react-native-element": "^1.2.1",
     "react-navbar": "^3.0.0",
     "react-redux": "^7.2.1",
